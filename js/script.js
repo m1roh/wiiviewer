@@ -32,8 +32,17 @@ function grabDatas() {
 			titres = data[1];
 			articles = data[2];
 			liens = data[3];
+			titles = [];
+			defs = [];
+			links = [];
 			for (var i = 0; i < titres.length; i++) {
-				$('#answers').append('<div id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '">' + articles[i] + '</p></a></div>');
+				titles += titres[i];
+				defs += articles[i];
+				links += liens[i];
+				console.log(titres);
+				console.log(articles);
+				console.log(liens);
+				//$('#answers').append('<div id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '">' + articles[i] + '</p></a></div>');
 			}
 		},
 		error: function() {
