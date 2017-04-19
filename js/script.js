@@ -1,7 +1,7 @@
 var apiUrl = 'https://en.wikipedia.org/w/api.php?';
 var parameters = {
 	action: 'opensearch',
-	limit: '10',
+	limit: '11',
 	namespace: '0',
 	format: 'json'
 };
@@ -32,17 +32,11 @@ function grabDatas() {
 			titres = data[1];
 			articles = data[2];
 			liens = data[3];
-			titles = [];
-			defs = [];
-			links = [];
 			for (var i = 0; i < titres.length; i++) {
-				titles += titres[i];
-				defs += articles[i];
-				links += liens[i];
-				console.log(titres);
-				console.log(articles);
-				console.log(liens);
-				//$('#answers').append('<div id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '">' + articles[i] + '</p></a></div>');
+				$('#answers').append('<div id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '">' + articles[i] + '</p></a></div>');
+				$('#answer1').attr('class', 'col-md-8');
+				$('#answer2').attr('class', 'col-md-8');
+				$('#answer3').attr('class', 'col-md-8');
 			}
 		},
 		error: function() {
@@ -58,4 +52,5 @@ $(function() {
 			test();
 		});
 	});
+	
 });
