@@ -46,7 +46,7 @@ function grabDatas() {
 				titresSm = titres[j].split(' ', 2).join(' ');
 				$('#title' + (j+1)).append(titresSm);
 				article = articles[j];
-				articlesSm = articles[j].slice(0, 45) + '...';
+				articlesSm = articles[j].split(' ', 4) + '...';
 				$('#text' + (j+1)).append(articlesSm);
 				$('.linkS').on('click', function(e) {
 					e.preventDefault();
