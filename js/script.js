@@ -32,8 +32,11 @@ function grabDatas() {
 			titres = data[1];
 			articles = data[2];
 			liens = data[3];
-			for (var i = 0; i < titres.length; i++) {
-				$('#answers').append('<div class="row" id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '" style="white-space: initial">' + articles[i] + '</p></a></div>');
+			for (var i = 0; i < 3; i++) {
+				$('#answersL').append('<div class="col-md-6 col-md-offset-3" id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '" style="white-space: initial">' + articles[i] + '</p></a></div>');
+			}
+			for (var j = 3; j < data.length; j++) {
+				$('#answersS').append('<div class="col-md-2 col-md-offset-1" id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '" style="white-space: initial">' + articles[i] + '</p></a></div>');
 			}
 			$('#answer1').attr('class', 'col-md-6 col-md-offset-3');
 			$('#answer2').attr('class', 'col-md-6 col-md-offset-3');
