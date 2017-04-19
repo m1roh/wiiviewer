@@ -19,7 +19,9 @@ function buildApiUrl() {
 
 var datas,
 	titres,
+	titresSm,
 	articles,
+	articlesSm,
 	liens;
 
 function grabDatas() {
@@ -39,8 +41,10 @@ function grabDatas() {
 			}
 			for (var j = 3; j < titres.length; j++) {
 				$('#link' + (j+1)).attr('href', liens[j]);
-				$('#title' + (j+1)).append(titres[j]);
-				$('#text' + (j+1)).append(articles[j]);
+				titresSm = titres[j].split(' ', 2).join(' ');
+				$('#title' + (j+1)).append(titresSm);
+				articlesSm = articles[j].slice(0, 45) + '...';
+				$('#text' + (j+1)).append(articlesSm);
 			}
 		},
 		error: function() {
