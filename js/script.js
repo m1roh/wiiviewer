@@ -33,11 +33,19 @@ function grabDatas() {
 			articles = data[2];
 			liens = data[3];
 			for (var i = 0; i < titres.length; i++) {
-				$('#answers').append('<div id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '">' + articles[i] + '</p></a></div>');
-				$('#answer1').attr('class', 'col-md-8');
-				$('#answer2').attr('class', 'col-md-8');
-				$('#answer3').attr('class', 'col-md-8');
+				$('#answers').append('<div class="row" id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '" style="white-space: initial">' + articles[i] + '</p></a></div>');
 			}
+			$('#answer1').attr('class', 'col-md-6 col-md-offset-3');
+			$('#answer2').attr('class', 'col-md-6 col-md-offset-3');
+			$('#answer3').attr('class', 'col-md-6 col-md-offset-3');
+			$('#answer4').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer5').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer6').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer7').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer8').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer9').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer10').attr('class', 'col-md-2 col-md-offset-1');
+			$('#answer11').attr('class', 'col-md-2 col-md-offset-1');
 		},
 		error: function() {
 			console.log('Request Failed');
