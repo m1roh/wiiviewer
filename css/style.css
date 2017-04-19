@@ -2,7 +2,15 @@ a {
     max-width: 100%;
 }
 
+#answersL {
+    display: none;
+}
+
+#answersS {
+    display: none;
+}
+
 #answer4, #answer5, #answer6, #answer7, #answer8, #answer9 #answer10, #answer11, #answer12 {
-    max-height: 80px;
+    /*max-height: 80px;*/
     max-width: 80px;
 }

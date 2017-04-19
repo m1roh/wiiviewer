@@ -33,22 +33,15 @@ function grabDatas() {
 			articles = data[2];
 			liens = data[3];
 			for (var i = 0; i < 3; i++) {
-				$('#answersL').append('<div class="col-md-6 col-md-offset-3" id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '" style="white-space: initial">' + articles[i] + '</p></a></div>');
+				$('#link' + (i+1)).attr('href', liens[i]);
+				$('#title' + (i+1)).append(titres[i]);
+				$('#text' + (i+1)).append(articles[i]); 
 			}
-			for (var j = 3; j < data.length; j++) {
-				$('#answersS').append('<div class="col-md-2 col-md-offset-1" id="answer' + (i + 1) + '"><a class="btn btn-default" href="' + liens[i] + '" id ="link' + i + '"><h2 id="title' + (i + 1) + '">' + titres[i] + '</h2><p id="text' + (i + 1) + '" style="white-space: initial">' + articles[i] + '</p></a></div>');
+			for (var j = 3; j < titres.length; j++) {
+				$('#link' + (j+1)).attr('href', liens[j]);
+				$('#title' + (j+1)).append(titres[j]);
+				$('#text' + (j+1)).append(articles[j]);
 			}
-			$('#answer1').attr('class', 'col-md-6 col-md-offset-3');
-			$('#answer2').attr('class', 'col-md-6 col-md-offset-3');
-			$('#answer3').attr('class', 'col-md-6 col-md-offset-3');
-			$('#answer4').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer5').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer6').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer7').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer8').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer9').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer10').attr('class', 'col-md-2 col-md-offset-1');
-			$('#answer11').attr('class', 'col-md-2 col-md-offset-1');
 		},
 		error: function() {
 			console.log('Request Failed');
@@ -61,6 +54,8 @@ $(function() {
 		$('#searchDiv').append('<input type="text" id="searchBox" /><div id="searchBtns"><button class="btn" id="searchValid">OK</button><button class="btn" id="searchReset">Annuler</button></div>');
 		$('#searchValid').on('click', function() {
 			test();
+			$('#answersL').show('slow');
+			$('#answersS').show('slow');
 		});
 	});
 	
