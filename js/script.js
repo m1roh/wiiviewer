@@ -46,27 +46,16 @@ function grabDatas() {
 				titresSm = titres[j].split(' ', 2).join(' ');
 				$('#title' + (j+1)).append(titresSm);
 				article = articles[j];
-				articlesSm = articles[j].split(' ', 4) + '...';
+				articlesSm = articles[j].split(' ', 4).join(' ') + '...';
 				$('#text' + (j+1)).append(articlesSm);
 				$('.linkS').on('click', function(e) {
-					e.preventDefault();
-					if ($(this).parent().attr('class') == 'col-md-3') {
-						$(this).parent().attr('class', 'col-md-12');
-						$(this).attr('href', lien);
-						$(this).children('p').html(article);
-					} else {
-						window.location = $(this).href;
-					}
-					
-					/*$(this).parent().attr('class', 'col-md-12');
-					$(this).attr('href', lien);
+					$(this).parent().attr('class', 'col-md-12');
 					$(this).children('p').html(article);
-					$(this).on('click', function(e) {
-						return true;
-					})*/
+					$(this).on('click', function() {
+						$(this).attr('href', lien);
+					});
 				});
 			}
-			
 		},
 		error: function() {
 			console.log('Request Failed');
@@ -83,5 +72,4 @@ $(function() {
 			$('#answersS').show('slow');
 		});
 	});
-	
 });
