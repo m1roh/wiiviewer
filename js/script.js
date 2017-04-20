@@ -17,28 +17,6 @@ function buildApiUrl() {
 	apiUrl += $.param(parameters);
 }
 
-/*function convertAnswersL() {
-	$('#ansSRowDiv').prepend($('#answer3').attr('class', 'col-md-3').removeAttr('id'));
-	oldLink = $('#3link').attr('href');
-	console.log(oldLink);
-	oldTitle = $('#3link h2').text();
-	console.log(oldTitle);
-	oldText = $('#3link p').text();
-	console.log(oldText);
-	newTitle = $('#3link h2').text().split('-').join(' ').split(' ', 2).join(' ');
-	newText = $('#3link p').text().split('-').join(' ').split(' ', 4).join(' ');
-	$('#3link h2').html(newTitle);
-	$('#3link p').html(newText);
-	$('#3link').removeAttr('href');
-	$('#3link').attr('role', 'button');
-	$('#3link').addClass('newLinkS');
-	$('#3link').attr('id', $(this).attr('id'));
-	$('#2link').attr('id', '3link');
-	$('#answer2').attr('id', 'answer3');
-	$('#1link').attr('id', '2link');
-	$('#answer1').attr('id', 'answer2');
-}*/
-
 function invertDivs() {
 	$('.linkS').on('click', function () {
 		function convertAnswersL() {
@@ -81,7 +59,6 @@ function invertDivs() {
 			$('#answersL').prepend($(this).parent());
 			$(this).children('h2').html(oldTitle);
 			$(this).children('p').html(oldText);
-			
 			$('#answersL').prepend($(this).parent());
 			$(this).parent().attr('class', 'col-md-6 col-md-offset-3');
 			$(this).parent().attr('id', 'answer1');
@@ -92,17 +69,6 @@ function invertDivs() {
 			});
 		});*/
 	});
-	/*$('.newLinkS').on('click', function () {
-				convertAnswersL();
-				console.log('pourquoi ça marche pas?')
-				$(this).parent().attr('class', 'col-md-6 col-md-offset-3');
-				$(this).parent().attr('id', 'answer1');
-				$('#answersL').prepend($(this).parent());
-				$(this).attr('href', oldLink);
-				$(this).children('h2').html(oldTitle);
-				$(this).children('p').html(oldText);
-			});*/
-
 }
 
 var datas,
@@ -146,7 +112,6 @@ function grabDatas() {
 				articlesSm = articles[j].split(' ', 4).join(' ') + '...';
 				$('#text' + (j + 1)).append(articlesSm);
 			}
-			//invertDivs();
 		},
 		error: function () {
 			console.log('Request Failed');
@@ -155,11 +120,9 @@ function grabDatas() {
 }
 
 $(function () {
-
 	$('#searchArticleBtn').on('click', function () {
 		$('#searchDiv').append('<input type="text" id="searchBox" /><div id="searchBtns"><button class="btn" id="searchValid">OK</button><button class="btn" id="searchReset">Annuler</button></div>');
 		$('#searchValid').on('click', function () {
-
 			test();
 			$('#answersL').show('slow');
 			$('#answersS').show('slow');
@@ -167,8 +130,6 @@ $(function () {
 			console.log(oldLink);
 			console.log($('#3link').attr('href'));
 			invertDivs();
-
-
 		});
 	});
 });
