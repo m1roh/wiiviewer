@@ -48,14 +48,32 @@ function grabDatas() {
 				article = articles[j];
 				articlesSm = articles[j].split(' ', 4).join(' ') + '...';
 				$('#text' + (j+1)).append(articlesSm);
-				$('.linkS').on('click', function(e) {
-					$(this).parent().attr('class', 'col-md-12');
+				
+			}
+			$('.linkS').on('click', function() {
+					$('#ansSRowDiv').prepend($('#answer3').attr('class', 'col-md-3').attr('id', ' '));
+					var newL3Title = $('#link3 h2').text().split('-').join(' ').split(' ', 2).join(' ');
+					var newL3Text = $('#link3 p').text().split('-').join(' ').split(' ', 4).join(' ');
+					$('#link3 h2').html(newL3Title);
+					$('#link3 p').html(newL3Text);
+					$('#link3').removeAttr('href');
+					$('#link3').attr('role', 'button');
+					$('#link3').addClass('linkS');
+					$('#link3').attr('id', $(this).attr('id'));
+					$('#link2').attr('id', 'link3');
+					$('#answer2').attr('id', 'answer3');
+					$('#link1').attr('id', 'link2');
+					$('#answer1').attr('id', 'answer2');
+					
+					$(this).parent().attr('class', 'col-md-6 col-md-offset-3');
+					$(this).parent().attr('id', 'answer1');
+					$('#answersL').prepend($(this).parent());
+					$(this).attr('id', 'link1')					
 					$(this).children('p').html(article);
 					$(this).on('click', function() {
 						$(this).attr('href', lien);
 					});
 				});
-			}
 		},
 		error: function() {
 			console.log('Request Failed');

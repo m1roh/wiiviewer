@@ -2,8 +2,17 @@
     display: none;
 }
 
-#answersS p,#answersS h4 {
+#answersS p,#answersS h4, #answersS h2 {
     text-align: left;
+    white-space: initial;
+}
+
+#answersL h4 {
+    font-size: 30px;
+}
+
+#answersS h2 {
+    font-size: 18px;
 }
 
 .col-md-3 a {
