@@ -19,12 +19,15 @@ function buildApiUrl() {
 
 function invertDivs() {
 	$('.linkS').on('click', function () {
-		function convertAnswersL() {
-			old3link = $('#3link').clone();
-			$('#ansSRowDiv').prepend($('#answer3').attr('class', 'col-md-3').removeAttr('id'));
+		old3link = $('#3link').clone();
+		
+		//var el = $(this);
+		//function convertAnswersL() {
+			$('#ansSRowDiv').prepend($('#3link')).attr('class', 'col-md-3').removeAttr('id');
+			$('#3link').attr('id', $(this).attr('id'));
 			oldLink = $('#3link').attr('href');
-			oldTitle = $('#3link h2').text();
-			oldText = $('#3link p').text();
+			oldTitle = $('#3link').text();
+			oldText = $('#3link').children('p').text();
 			newTitle = $('#3link h2').text().split('-').join(' ').split(' ', 2).join(' ');
 			newText = $('#3link p').text().split('-').join(' ').split(' ', 4).join(' ');
 			$('#3link h2').html(newTitle);
@@ -32,13 +35,12 @@ function invertDivs() {
 			$('#3link').removeAttr('href');
 			$('#3link').attr('role', 'button');
 			$('#3link').addClass('newLinkS');
-			$('#3link').attr('id', $(this).attr('id'));
 			$('#2link').attr('id', '3link');
 			$('#answer2').attr('id', 'answer3');
 			$('#1link').attr('id', '2link');
 			$('#answer1').attr('id', 'answer2');
-		}
-		convertAnswersL();
+		//}
+		//convertAnswersL();
 
 		$(this).parent().attr('class', 'col-md-6 col-md-offset-3');
 		$(this).parent().attr('id', 'answer1');
@@ -51,23 +53,15 @@ function invertDivs() {
 			$(this).attr('href', lien);
 		});
 
-		/*$('.newLinkS').on('click', function () {
-			convertAnswersL();
-			$(this).parent().attr('class', 'col-md-6 col-md-offset-3');
-			$(this).parent().attr('id', 'answer1');
-			$(this).parent().html(old3link);
-			$('#answersL').prepend($(this).parent());
-			$(this).children('h2').html(oldTitle);
-			$(this).children('p').html(oldText);
-			$('#answersL').prepend($(this).parent());
-			$(this).parent().attr('class', 'col-md-6 col-md-offset-3');
-			$(this).parent().attr('id', 'answer1');
-			$(this).children('h2').html(oldTitle);
-			$(this).children('p').html(oldText);
-			$(this).on('click', function () {
-				$(this).attr('href', oldLink);
-			});
-		});*/
+		$('.newLinkS').on('click', function () {
+			
+			$('#answer1').prepend(old3link);
+			console.log($(this).attr('id'));
+			$('#3link').attr('id', $(this).attr('id'));
+			$('#2link').attr('id', '3link');
+			$('#1link').attr('id', '2link');
+			old3link.attr('id', '1link');
+		});
 	});
 }
 
